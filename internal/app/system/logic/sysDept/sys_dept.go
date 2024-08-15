@@ -65,7 +65,7 @@ func (s *sSysDept) GetFromCache(ctx context.Context) (list []*entity.SysDept, er
 			value = list
 			return
 		}, 0, consts.CacheSysAuthTag)
-		if iList != nil {
+		if !iList.IsEmpty() {
 			err = gconv.Struct(iList, &list)
 			liberr.ErrIsNil(ctx, err)
 		}

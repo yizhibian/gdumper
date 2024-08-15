@@ -63,7 +63,7 @@ func (s *sSysRole) GetRoleList(ctx context.Context) (list []*entity.SysRole, err
 	cache := commonService.Cache()
 	//从缓存获取
 	iList := cache.GetOrSetFuncLock(ctx, consts.CacheSysRole, s.getRoleListFromDb, 0, consts.CacheSysAuthTag)
-	if iList != nil {
+	if !iList.IsEmpty() {
 		err = gconv.Struct(iList, &list)
 	}
 	return

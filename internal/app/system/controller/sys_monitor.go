@@ -10,6 +10,7 @@ import (
 	"github.com/shirou/gopsutil/v3/host"
 	"github.com/shirou/gopsutil/v3/load"
 	"github.com/shirou/gopsutil/v3/mem"
+	"github.com/shirou/gopsutil/v3/process"
 	"github.com/tiger1103/gfast/v3/api/v1/system"
 	"github.com/tiger1103/gfast/v3/library/libUtils"
 	"os"
@@ -62,12 +63,16 @@ func (c *sysMonitorController) List(ctx context.Context, req *system.MonitorSear
 	var goFree uint64 = 0   //go剩余的内存数
 	var goUsage float64 = 0 //使用率
 
-	var gomem runtime.MemStats
-	runtime.ReadMemStats(&gomem)
-	goUsed = gomem.Sys
-	goUsage = gconv.Float64(fmt.Sprintf("%.2f", gconv.Float64(goUsed)/gconv.Float64(memTotal)*100))
-	sysComputerIp := "" //服务器IP
+	p, err := process.NewProcess(int32(os.Getpid()))
+	if err == nil {
+		memInfo, err := p.MemoryInfo()
+		if err == nil {
+			goUsed = memInfo.RSS
+			goUsage = gconv.Float64(fmt.Sprintf("%.2f", gconv.Float64(goUsed)/gconv.Float64(memTotal)*100))
+		}
+	}
 
+	sysComputerIp := "" //服务器IP
 	ip, err := libUtils.GetLocalIP()
 	if err == nil {
 		sysComputerIp = ip

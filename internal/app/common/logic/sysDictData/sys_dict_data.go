@@ -61,7 +61,7 @@ func (s *sSysDictData) GetDictWithDataByType(ctx context.Context, dictType, defa
 		value = dict
 		return
 	}, 0, consts.CacheSysDictTag)
-	if iDict != nil {
+	if !iDict.IsEmpty() {
 		err = gconv.Struct(iDict, &dict)
 		if err != nil {
 			return
