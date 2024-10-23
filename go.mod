@@ -7,9 +7,9 @@ toolchain go1.23.0
 require (
 	github.com/asaskevich/EventBus v0.0.0-20200907212545-49d423059eef
 	github.com/casbin/casbin/v2 v2.42.0
-	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.7.2
-	github.com/gogf/gf/contrib/nosql/redis/v2 v2.7.2
-	github.com/gogf/gf/v2 v2.7.2
+	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.7.4
+	github.com/gogf/gf/contrib/nosql/redis/v2 v2.7.4
+	github.com/gogf/gf/v2 v2.7.4
 	github.com/mojocn/base64Captcha v1.3.6
 	github.com/mssola/user_agent v0.5.3
 	github.com/shirou/gopsutil/v3 v3.23.2

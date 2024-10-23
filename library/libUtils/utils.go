@@ -37,12 +37,18 @@ func EncryptPassword(password, salt string) string {
 // GetDomain 获取当前请求接口域名
 func GetDomain(ctx context.Context) string {
 	r := g.RequestFromCtx(ctx)
-	pathInfo, err := gurl.ParseURL(r.GetUrl(), -1)
-	if err != nil {
-		g.Log().Error(ctx, err)
-		return ""
+	host := r.Header.Get("X-Forwarded-Host")
+	if host == "" {
+		host = r.Header.Get("X-Host")
 	}
-	return fmt.Sprintf("%s://%s:%s/", pathInfo["scheme"], pathInfo["host"], pathInfo["port"])
+	if host == "" {
+		host = r.Host
+	}
+	scheme := r.Header.Get("X-Scheme")
+	if scheme == "" {
+		scheme = r.GetSchema()
+	}
+	return fmt.Sprintf("%s://%s", scheme, host)
 }
 
 // GetClientIp 获取客户端IP
