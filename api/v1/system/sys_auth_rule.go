@@ -66,7 +66,7 @@ type RuleGetParamsRes struct {
 type RuleInfoReq struct {
 	g.Meta `path:"/menu/get" tags:"菜单管理" method:"get" summary:"获取菜单信息"`
 	commonApi.Author
-	Id uint `p:"required#菜单id必须"`
+	Id uint `p:"id" v:"required#菜单id必须"`
 }
 
 type RuleInfoRes struct {
