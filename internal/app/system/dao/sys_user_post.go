@@ -5,7 +5,7 @@
 package dao
 
 import (
-	"github.com/tiger1103/gfast/v3/internal/app/system/dao/internal"
+	"github.com/yizhibian/gdumper/internal/app/system/dao/internal"
 )
 
 // internalSysUserPostDao is internal type for wrapping internal DAO implements.

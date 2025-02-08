@@ -5,7 +5,7 @@
 package dao
 
 import (
-	"github.com/tiger1103/gfast/v3/internal/app/common/dao/internal"
+	"github.com/yizhibian/gdumper/internal/app/common/dao/internal"
 )
 
 // sysDictDataDao is the data access object for table sys_dict_data.

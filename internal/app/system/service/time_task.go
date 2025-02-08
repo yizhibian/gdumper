@@ -6,7 +6,7 @@
 package service
 
 import (
-	"github.com/tiger1103/gfast/v3/internal/app/system/model"
+	"github.com/yizhibian/gdumper/internal/app/system/model"
 )
 
 type (

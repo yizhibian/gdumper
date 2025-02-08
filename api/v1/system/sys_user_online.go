@@ -9,8 +9,8 @@ package system
 
 import (
 	"github.com/gogf/gf/v2/frame/g"
-	commonApi "github.com/tiger1103/gfast/v3/api/v1/common"
-	"github.com/tiger1103/gfast/v3/internal/app/system/model/entity"
+	commonApi "github.com/yizhibian/gdumper/api/v1/common"
+	"github.com/yizhibian/gdumper/internal/app/system/model/entity"
 )
 
 // SysUserOnlineSearchReq 列表搜索参数

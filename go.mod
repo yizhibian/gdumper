@@ -1,8 +1,8 @@
-module github.com/tiger1103/gfast/v3
+module github.com/yizhibian/gdumper
 
-go 1.21
+go 1.23
 
-toolchain go1.23.0
+//toolchain go1.23.0
 
 require (
 	github.com/asaskevich/EventBus v0.0.0-20200907212545-49d423059eef

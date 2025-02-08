@@ -6,8 +6,8 @@ import (
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/gogf/gf/v2/frame/g"
-	"github.com/tiger1103/gfast/v3/internal/app/common/dao"
-	"github.com/tiger1103/gfast/v3/internal/app/common/model/entity"
+	"github.com/yizhibian/gdumper/internal/app/common/dao"
+	"github.com/yizhibian/gdumper/internal/app/common/model/entity"
 	"sync"
 )
 

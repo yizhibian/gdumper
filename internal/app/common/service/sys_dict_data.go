@@ -8,7 +8,7 @@ package service
 import (
 	"context"
 
-	"github.com/tiger1103/gfast/v3/api/v1/system"
+	"github.com/yizhibian/gdumper/api/v1/system"
 )
 
 type ISysDictData interface {

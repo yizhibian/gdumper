@@ -12,14 +12,14 @@ import (
 	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/util/gconv"
-	"github.com/tiger1103/gfast/v3/api/v1/system"
-	commonService "github.com/tiger1103/gfast/v3/internal/app/common/service"
-	"github.com/tiger1103/gfast/v3/internal/app/system/consts"
-	"github.com/tiger1103/gfast/v3/internal/app/system/dao"
-	"github.com/tiger1103/gfast/v3/internal/app/system/model/do"
-	"github.com/tiger1103/gfast/v3/internal/app/system/model/entity"
-	"github.com/tiger1103/gfast/v3/internal/app/system/service"
-	"github.com/tiger1103/gfast/v3/library/liberr"
+	"github.com/yizhibian/gdumper/api/v1/system"
+	commonService "github.com/yizhibian/gdumper/internal/app/common/service"
+	"github.com/yizhibian/gdumper/internal/app/system/consts"
+	"github.com/yizhibian/gdumper/internal/app/system/dao"
+	"github.com/yizhibian/gdumper/internal/app/system/model/do"
+	"github.com/yizhibian/gdumper/internal/app/system/model/entity"
+	"github.com/yizhibian/gdumper/internal/app/system/service"
+	"github.com/yizhibian/gdumper/library/liberr"
 )
 
 func init() {

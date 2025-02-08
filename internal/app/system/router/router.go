@@ -10,9 +10,9 @@ package router
 import (
 	"context"
 	"github.com/gogf/gf/v2/net/ghttp"
-	"github.com/tiger1103/gfast/v3/internal/app/system/controller"
-	"github.com/tiger1103/gfast/v3/internal/app/system/service"
-	"github.com/tiger1103/gfast/v3/library/libRouter"
+	"github.com/yizhibian/gdumper/internal/app/system/controller"
+	"github.com/yizhibian/gdumper/internal/app/system/service"
+	"github.com/yizhibian/gdumper/library/libRouter"
 )
 
 var R = new(Router)

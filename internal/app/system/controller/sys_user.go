@@ -2,10 +2,10 @@ package controller
 
 import (
 	"context"
-	"github.com/tiger1103/gfast/v3/api/v1/system"
-	"github.com/tiger1103/gfast/v3/internal/app/system/model"
-	"github.com/tiger1103/gfast/v3/internal/app/system/model/entity"
-	"github.com/tiger1103/gfast/v3/internal/app/system/service"
+	"github.com/yizhibian/gdumper/api/v1/system"
+	"github.com/yizhibian/gdumper/internal/app/system/model"
+	"github.com/yizhibian/gdumper/internal/app/system/model/entity"
+	"github.com/yizhibian/gdumper/internal/app/system/service"
 )
 
 var (
