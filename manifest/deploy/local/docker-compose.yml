@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:6.2.5
+    container_name: redis_container
+    ports:
+      - "6379:6379"  # 映射主机的 6379 端口到容器的 6379 端口
+    volumes:
+      - ./tmp:/data  # 持久化数据
+
+  gdumper-app:
+    image: gdumper:1.0.11
+    container_name: gdumper_container
+    ports:
+      - "8808:8808"
+    depends_on:
+      - redis  # 确保 Redis 在 gdumper-app 启动之前启动
+      - mysql
+
+  gdumper-ui:
+    image: gdumper-ui:test4
+    container_name: gdumper_ui
+    ports:
+      - "8080:80"
+
+  mysql:
+    image: mysql:8.0.32
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 1119  # 设置 MySQL root 密码
+      MYSQL_DATABASE: common        # 创建数据库
+      MYSQL_USER: dumper                     # 创建用户
+      MYSQL_PASSWORD: 1119        # 用户密码
+    ports:
+      - "3006:3306"  # 映射主机的 3306 端口到容器的 3306 端口
+    volumes:
+      - mysql_data:/var/lib/mysql  # 持久化 MySQL 数据
+
+volumes:
+  mysql_data:  # 声明持久化卷

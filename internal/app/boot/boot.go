@@ -9,5 +9,6 @@ package boot
 
 import (
 	_ "github.com/yizhibian/gdumper/internal/app/common/logic"
+	_ "github.com/yizhibian/gdumper/internal/app/monitor/logic"
 	_ "github.com/yizhibian/gdumper/internal/app/system/logic"
 )

@@ -12,6 +12,7 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	commonRouter "github.com/yizhibian/gdumper/internal/app/common/router"
 	commonService "github.com/yizhibian/gdumper/internal/app/common/service"
+	monitorRouter "github.com/yizhibian/gdumper/internal/app/monitor/router"
 	systemRouter "github.com/yizhibian/gdumper/internal/app/system/router"
 	"github.com/yizhibian/gdumper/library/libRouter"
 )
@@ -29,6 +30,8 @@ func (router *Router) BindController(ctx context.Context, group *ghttp.RouterGro
 		systemRouter.R.BindController(ctx, group)
 		// 绑定公共路由
 		commonRouter.R.BindController(ctx, group)
+		// 绑定kube路径
+		monitorRouter.R.BindController(ctx, group)
 		//自动绑定定义的模块
 		if err := libRouter.RouterAutoBind(ctx, router, group); err != nil {
 			panic(err)

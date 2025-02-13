@@ -1,0 +1,88 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdumper-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gdumper
+  template:
+    metadata:
+      labels:
+        app: gdumper
+    spec:
+      containers:
+        - name: gdumper
+          image: gdumper:1.0.20
+          ports:
+            - containerPort: 8808
+          env:
+          # 如果需要环境变量，可以在这里添加
+          command: ["./main"]  # 根据应用的启动方式调整
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gdumper-service
+  namespace: default
+spec:
+  ports:
+    - port: 8808
+      targetPort: 8808
+  selector:
+    app: gdumper
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: event-reader
+rules:
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["get", "list", "watch"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader-binding
+  namespace: default
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: event-reader-binding
+  namespace: default
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: Role
+  name: event-reader
+  apiGroup: rbac.authorization.k8s.io
