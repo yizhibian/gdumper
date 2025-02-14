@@ -89,11 +89,10 @@ metadata:
   name: mysql
   namespace: default
 spec:
-  type: NodePort
+  # type: NodePort
   ports:
     - port: 3306
-      targetPort: 3306
-      nodePort: 30001  # 可以指定 NodePort，也可以让 Kubernetes 自动分配
+      targetPort: 330
   selector:
     app: mysql
 
